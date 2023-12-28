@@ -1,4 +1,4 @@
-name: CallChatGPT_build_main
+name: CallChatGPT_build_push
 
 on:
   push:
