@@ -12,7 +12,7 @@ internal class SnakeCaseNamingPolicy : JsonNamingPolicy
     /// <summary>
     /// Singleton instance.
     /// </summary>
-    internal static SnakeCaseNamingPolicy Instance { get; } = new ();
+    internal static SnakeCaseNamingPolicy Instance { get; } = new SnakeCaseNamingPolicy();
 
     /// <inheritdoc/>
     public override string ConvertName(string name)
