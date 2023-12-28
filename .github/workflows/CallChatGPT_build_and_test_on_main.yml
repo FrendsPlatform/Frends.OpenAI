@@ -2,7 +2,7 @@ name: CallChatGPT_build_main
 
 on:
   push:
-    branches:    
+    branches:
       - main
     paths:
       - 'Frends.OpenAI.CallChatGPT/**'
@@ -13,6 +13,7 @@ jobs:
     uses: FrendsPlatform/FrendsTasks/.github/workflows/linux_build_main.yml@main
     with:
       workdir: Frends.OpenAI.CallChatGPT
+      env_var_name_1: OPENAI_API_KEY
     secrets:
       badge_service_api_key: ${{ secrets.BADGE_SERVICE_API_KEY }}
-      
+      env_var_value_1: ${{ secrets.OPENAI_API_KEY }}
