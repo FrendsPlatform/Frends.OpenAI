@@ -55,5 +55,6 @@ public class Result
     /// <summary>
     /// Error message, if the operation was not successful. Otherwise null.
     /// </summary>
+    /// <example>OpenAI API call failed with status code 500 and content ...</example>
     public string Error { get; private set; }
 }

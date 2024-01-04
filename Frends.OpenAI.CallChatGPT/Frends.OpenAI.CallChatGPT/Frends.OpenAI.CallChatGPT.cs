@@ -45,7 +45,7 @@ public static class OpenAI
         [PropertyTab] Options options,
         CancellationToken cancellationToken)
     {
-        var client = CreateClient(options);
+        using var client = CreateClient(options);
         var request = new RestRequest("v1/chat/completions");
         request.AddJsonBody(input);
 

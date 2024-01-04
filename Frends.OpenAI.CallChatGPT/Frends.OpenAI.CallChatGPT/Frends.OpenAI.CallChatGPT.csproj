@@ -11,7 +11,7 @@
 	  <PackageTags>Frends</PackageTags>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
-	  <Description>Description of the Task</Description>
+	  <Description>Frends task for calling OpenAI's Chat GPT API.</Description>
 	  <PackageProjectUrl>https://frends.com/</PackageProjectUrl>
 	  <RepositoryUrl>https://github.com/FrendsPlatform/Frends.OpenAI/tree/main/Frends.OpenAI.CallChatGPT</RepositoryUrl>
   </PropertyGroup>
@@ -34,7 +34,7 @@
     <PackageReference Include="RestSharp" Version="110.2.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
 		<PrivateAssets>all</PrivateAssets>
@@ -45,7 +45,7 @@
 		<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
 	</PackageReference>
   </ItemGroup>
-  
+
   <ItemGroup>
     <None Remove="stylecop.json" />
     <AdditionalFiles Include="stylecop.json" />

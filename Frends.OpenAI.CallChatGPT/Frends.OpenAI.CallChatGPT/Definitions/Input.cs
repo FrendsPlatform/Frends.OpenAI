@@ -68,6 +68,7 @@ public class Input
     /// A unique identifier representing your end-user, which can help OpenAI to
     /// monitor and detect abuse.
     /// </summary>
+    /// <example>User12345</example>
     public string User { get; set; }
 }
 
@@ -87,7 +88,7 @@ public class InputMessage
     /// <summary>
     /// Role of the message. Example values: `user` or `system`.
     /// </summary>
-    /// <example>User.</example>
+    /// <example>User</example>
     [DisplayFormat(DataFormatString = "Text")]
     [DefaultValue("user")]
     public string Role { get; set; }
