@@ -19,6 +19,7 @@ internal class IntegrationTests
         var input = new Input
         {
             Model = "gpt-3.5-turbo",
+            ApiKey = this.apiKey,
             Messages = new[]
             {
                 new InputMessage
@@ -29,7 +30,7 @@ internal class IntegrationTests
             },
         };
 
-        var options = new Options { ApiKey = this.apiKey };
+        var options = new Options();
 
         var ret = await OpenAI.CallChatGPT(input, options, default);
         Assert.IsTrue(ret.ChatCompletion.Model.StartsWith("gpt-3.5-turbo"));
