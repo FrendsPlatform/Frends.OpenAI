@@ -43,18 +43,29 @@ internal class BasicPropertyTests
         // Act
         input.Model = "gpt-3.5-turbo";
         input.Messages = messages;
-        input.MaxTokens = 100;
-        input.N = 3;
-        input.Seed = 12345;
-        input.User = "test-user";
 
         // Assert
         Assert.AreEqual("gpt-3.5-turbo", input.Model);
         CollectionAssert.AreEqual(messages, input.Messages);
-        Assert.AreEqual(100, input.MaxTokens);
-        Assert.AreEqual(3, input.N);
-        Assert.AreEqual(12345, input.Seed);
-        Assert.AreEqual("test-user", input.User);
+    }
+
+    [Test]
+    public void OptionsProperties_SetAndGetCorrectly()
+    {
+        // Arrange
+        var options = new Options();
+
+        // Act
+        options.MaxTokens = 100;
+        options.N = 3;
+        options.Seed = 12345;
+        options.User = "test-user";
+
+        // Assert
+        Assert.AreEqual(100, options.MaxTokens);
+        Assert.AreEqual(3, options.N);
+        Assert.AreEqual(12345, options.Seed);
+        Assert.AreEqual("test-user", options.User);
     }
 
     [Test]

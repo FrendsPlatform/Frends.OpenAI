@@ -45,9 +45,17 @@ public static class OpenAI
         [PropertyTab] Options options,
         CancellationToken cancellationToken)
     {
-        using var client = CreateClient(options);
+        using var client = CreateClient(input);
         var request = new RestRequest("v1/chat/completions");
-        request.AddJsonBody(input);
+        request.AddJsonBody(new
+        {
+            input.Messages,
+            input.Model,
+            options.MaxTokens,
+            options.N,
+            options.Seed,
+            options.User,
+        });
 
         var response = await client.ExecutePostAsync<ChatCompletion>(request, cancellationToken);
         return response.IsSuccessful
@@ -69,9 +77,9 @@ public static class OpenAI
         return new Result(false, errorText, null);
     }
 
-    private static RestClient CreateClient(Options options)
+    private static RestClient CreateClient(Input input)
     {
-        var auth = new JwtAuthenticator(options.ApiKey);
+        var auth = new JwtAuthenticator(input.ApiKey);
         var restClientOptions = new RestClientOptions
         {
             // S1075 is complaining about hardcoded URL, but this is the host
