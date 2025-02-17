@@ -4,6 +4,7 @@ using System;
 using System.Threading.Tasks;
 using Frends.OpenAI.CallChatGPT.Definitions;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 
 /// <summary>
 /// Test class.
@@ -33,10 +34,10 @@ internal class IntegrationTests
         var options = new Options();
 
         var ret = await OpenAI.CallChatGPT(input, options, default);
-        Assert.IsTrue(ret.ChatCompletion.Model.StartsWith("gpt-3.5-turbo"));
-        Assert.IsTrue(ret.ChatCompletion.Created > 0);
-        Assert.AreEqual(1, ret.ChatCompletion.Choices.Count);
-        Assert.IsFalse(string.IsNullOrWhiteSpace(ret.ChatCompletion.Choices[0].Message.Content));
-        Assert.AreEqual(11, ret.ChatCompletion.Usage.PromptTokens);
+        ClassicAssert.IsTrue(ret.ChatCompletion.Model.StartsWith("gpt-3.5-turbo"));
+        ClassicAssert.IsTrue(ret.ChatCompletion.Created > 0);
+        ClassicAssert.AreEqual(1, ret.ChatCompletion.Choices.Count);
+        ClassicAssert.IsFalse(string.IsNullOrWhiteSpace(ret.ChatCompletion.Choices[0].Message.Content));
+        ClassicAssert.AreEqual(11, ret.ChatCompletion.Usage.PromptTokens);
     }
 }

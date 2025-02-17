@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using Frends.OpenAI.CallChatGPT.Definitions;
 using NUnit.Framework;
+using NUnit.Framework.Legacy;
 
 /// <summary>
 /// Test class.
@@ -23,9 +24,9 @@ internal class BasicPropertyTests
         usage.TotalTokens = 30;
 
         // Assert
-        Assert.AreEqual(10, usage.PromptTokens);
-        Assert.AreEqual(20, usage.CompletionTokens);
-        Assert.AreEqual(30, usage.TotalTokens);
+        ClassicAssert.AreEqual(10, usage.PromptTokens);
+        ClassicAssert.AreEqual(20, usage.CompletionTokens);
+        ClassicAssert.AreEqual(30, usage.TotalTokens);
     }
 
     [Test]
@@ -45,7 +46,7 @@ internal class BasicPropertyTests
         input.Messages = messages;
 
         // Assert
-        Assert.AreEqual("gpt-3.5-turbo", input.Model);
+        ClassicAssert.AreEqual("gpt-3.5-turbo", input.Model);
         CollectionAssert.AreEqual(messages, input.Messages);
     }
 
@@ -62,10 +63,10 @@ internal class BasicPropertyTests
         options.User = "test-user";
 
         // Assert
-        Assert.AreEqual(100, options.MaxTokens);
-        Assert.AreEqual(3, options.N);
-        Assert.AreEqual(12345, options.Seed);
-        Assert.AreEqual("test-user", options.User);
+        ClassicAssert.AreEqual(100, options.MaxTokens);
+        ClassicAssert.AreEqual(3, options.N);
+        ClassicAssert.AreEqual(12345, options.Seed);
+        ClassicAssert.AreEqual("test-user", options.User);
     }
 
     [Test]
@@ -79,8 +80,8 @@ internal class BasicPropertyTests
         message.Role = "user";
 
         // Assert
-        Assert.AreEqual("Hello, world.", message.Content);
-        Assert.AreEqual("user", message.Role);
+        ClassicAssert.AreEqual("Hello, world.", message.Content);
+        ClassicAssert.AreEqual("user", message.Role);
     }
 
     [Test]
@@ -101,12 +102,12 @@ internal class BasicPropertyTests
         chatCompletion.Usage = usage;
 
         // Assert
-        Assert.AreEqual("123", chatCompletion.Id);
-        Assert.AreEqual(created, chatCompletion.Created); // Allow a small margin for time difference
-        Assert.AreEqual("gpt-3.5-turbo", chatCompletion.Model);
-        Assert.AreEqual("fingerprint123", chatCompletion.SystemFingerprint);
+        ClassicAssert.AreEqual("123", chatCompletion.Id);
+        ClassicAssert.AreEqual(created, chatCompletion.Created); // Allow a small margin for time difference
+        ClassicAssert.AreEqual("gpt-3.5-turbo", chatCompletion.Model);
+        ClassicAssert.AreEqual("fingerprint123", chatCompletion.SystemFingerprint);
         CollectionAssert.AreEqual(choices, chatCompletion.Choices);
-        Assert.AreEqual(usage, chatCompletion.Usage);
+        ClassicAssert.AreEqual(usage, chatCompletion.Usage);
     }
 
     [Test]
@@ -122,9 +123,9 @@ internal class BasicPropertyTests
         choice.FinishReason = "stop";
 
         // Assert
-        Assert.AreEqual(1, choice.Index);
-        Assert.AreEqual(message, choice.Message);
-        Assert.AreEqual("stop", choice.FinishReason);
+        ClassicAssert.AreEqual(1, choice.Index);
+        ClassicAssert.AreEqual(message, choice.Message);
+        ClassicAssert.AreEqual("stop", choice.FinishReason);
     }
 
     [Test]
@@ -138,7 +139,7 @@ internal class BasicPropertyTests
         message.Content = "Hello, world.";
 
         // Assert
-        Assert.AreEqual("User", message.Role);
-        Assert.AreEqual("Hello, world.", message.Content);
+        ClassicAssert.AreEqual("User", message.Role);
+        ClassicAssert.AreEqual("Hello, world.", message.Content);
     }
 }
