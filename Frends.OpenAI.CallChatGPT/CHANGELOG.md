@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.0.2] - 2025-02-17
+## [1.1.0] - 2025-02-17
 ### Changed
 - Update packages:
 - RestSharp                          110.2.0     -> 112.1.0
