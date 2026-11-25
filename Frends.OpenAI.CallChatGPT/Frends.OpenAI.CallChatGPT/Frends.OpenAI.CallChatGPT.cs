@@ -1,15 +1,15 @@
 namespace Frends.OpenAI.CallChatGPT;
 
 using System;
-using RestSharp;
-using RestSharp.Authenticators;
 using System.ComponentModel;
-using System.Threading;
-using Definitions;
-using Helpers;
 using System.Net.Http;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
+using Frends.OpenAI.CallChatGPT.Definitions;
+using Frends.OpenAI.CallChatGPT.Helpers;
+using RestSharp;
+using RestSharp.Authenticators;
 using RestSharp.Serializers.Json;
 
 /// <summary>
