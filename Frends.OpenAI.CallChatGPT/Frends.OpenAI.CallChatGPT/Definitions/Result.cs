@@ -1,4 +1,4 @@
-﻿namespace Frends.OpenAI.CallChatGPT.Definitions;
+namespace Frends.OpenAI.CallChatGPT.Definitions;
 
 /// <summary>
 /// Result.
@@ -6,20 +6,7 @@
 public class Result
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="Result"/> class.
-    /// </summary>
-    /// <param name="success">Success.</param>
-    /// <param name="error">Error.</param>
-    /// <param name="chatCompletion">ChatCompletion.</param>
-    internal Result(bool success, string error, ChatCompletion chatCompletion)
-    {
-        this.ChatCompletion = chatCompletion;
-        this.Success = success;
-        this.Error = error;
-    }
-
-    /// <summary>
-    /// Contains the input repeated the specified number of times.
+    /// Chat completion returned by the API.
     /// </summary>
     /// <example>
     /// {
@@ -44,17 +31,17 @@ public class Result
     ///   }
     /// }
     /// </example>
-    public ChatCompletion ChatCompletion { get; private set; }
+    public ChatCompletion ChatCompletion { get; set; }
 
     /// <summary>
     /// Indicates whether the operation was successful.
     /// </summary>
     /// <example>true</example>
-    public bool Success { get; private set; }
+    public bool Success { get; set; }
 
     /// <summary>
-    /// Error message, if the operation was not successful. Otherwise null.
+    /// Error that occurred during task execution.
     /// </summary>
-    /// <example>OpenAI API call failed with status code 500 and content ...</example>
-    public string Error { get; private set; }
+    /// <example>object { string Message, Exception AdditionalInfo }</example>
+    public Error Error { get; set; }
 }
