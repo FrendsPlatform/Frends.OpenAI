@@ -15,7 +15,7 @@ public class Connection
     /// <example>gpt-4.1-mini</example>
     [DisplayFormat(DataFormatString = "Text")]
     [DefaultValue("gpt-4.1-mini")]
-    public string Model { get; set; } = "gpt-3.5-turbo";
+    public string Model { get; set; } = "gpt-4.1-mini";
 
     /// <summary>
     /// ChatGPT API key.
