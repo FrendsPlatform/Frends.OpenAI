@@ -55,7 +55,7 @@ internal class BasicPropertyTests
     {
         // Arrange
         var connection = new Connection();
-        ClassicAssert.AreEqual("gpt-3.5-turbo", connection.Model);
+        ClassicAssert.AreEqual("gpt-4.1-mini", connection.Model);
 
         // Act
         connection.Model = "gpt-4.1-mini";
@@ -112,7 +112,7 @@ internal class BasicPropertyTests
         // Act
         chatCompletion.Id = "123";
         chatCompletion.Created = created;
-        chatCompletion.Model = "gpt-3.5-turbo";
+        chatCompletion.Model = "gpt-4.1-mini";
         chatCompletion.SystemFingerprint = "fingerprint123";
         chatCompletion.Choices = choices;
         chatCompletion.Usage = usage;
@@ -120,7 +120,7 @@ internal class BasicPropertyTests
         // Assert
         ClassicAssert.AreEqual("123", chatCompletion.Id);
         ClassicAssert.AreEqual(created, chatCompletion.Created); // Allow a small margin for time difference
-        ClassicAssert.AreEqual("gpt-3.5-turbo", chatCompletion.Model);
+        ClassicAssert.AreEqual("gpt-4.1-mini", chatCompletion.Model);
         ClassicAssert.AreEqual("fingerprint123", chatCompletion.SystemFingerprint);
         CollectionAssert.AreEqual(choices, chatCompletion.Choices);
         ClassicAssert.AreEqual(usage, chatCompletion.Usage);
