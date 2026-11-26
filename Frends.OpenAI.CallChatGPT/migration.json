@@ -1,0 +1,28 @@
+[
+  {
+    "Task": "Frends.OpenAI.CallChatGPT",
+    "Migrations": [
+      {
+        "Version": "2.0.0",
+        "Description": "Move connection settings and rename the error option",
+        "Migration": [
+          {
+            "Type": "Copy",
+            "Source": "Input.Model",
+            "Target": "Connection.Model"
+          },
+          {
+            "Type": "Copy",
+            "Source": "Input.ApiKey",
+            "Target": "Connection.ApiKey"
+          },
+          {
+            "Type": "Copy",
+            "Source": "Options.ThrowExceptionOnErrorResponse",
+            "Target": "Options.ThrowErrorOnFailure"
+          }
+        ]
+      }
+    ]
+  }
+]
