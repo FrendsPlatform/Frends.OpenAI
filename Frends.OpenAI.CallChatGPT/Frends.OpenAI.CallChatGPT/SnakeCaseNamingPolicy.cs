@@ -1,7 +1,7 @@
-namespace Frends.OpenAI.CallChatGPT;
-
 using System.Linq;
 using System.Text.Json;
+
+namespace Frends.OpenAI.CallChatGPT;
 
 /// <summary>
 /// This class is used to convert property names to snake_case in JSON
@@ -14,7 +14,11 @@ internal class SnakeCaseNamingPolicy : JsonNamingPolicy
     /// </summary>
     internal static SnakeCaseNamingPolicy Instance { get; } = new SnakeCaseNamingPolicy();
 
-    /// <inheritdoc/>
+    /// <summary>
+    /// Converts a property name to snake_case.
+    /// </summary>
+    /// <param name="name">Property name.</param>
+    /// <returns>Name converted to snake_case.</returns>
     public override string ConvertName(string name)
     {
         // Conversion to other naming convention goes here. Like SnakeCase, KebabCase etc.

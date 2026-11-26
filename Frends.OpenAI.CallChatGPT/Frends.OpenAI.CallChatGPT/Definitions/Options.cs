@@ -1,7 +1,7 @@
-﻿namespace Frends.OpenAI.CallChatGPT.Definitions;
-
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
+namespace Frends.OpenAI.CallChatGPT.Definitions;
 
 /// <summary>
 /// Options.
@@ -52,10 +52,17 @@ public class Options
     public string User { get; set; }
 
     /// <summary>
-    /// Whether to throw an exception if the API returns an error. Otherwise
-    /// the error is returned as part of the result.
+    /// Whether to throw an error on failure.
     /// </summary>
     /// <example>true</example>
     [DefaultValue(true)]
-    public bool ThrowExceptionOnErrorResponse { get; set; } = true;
+    public bool ThrowErrorOnFailure { get; set; } = true;
+
+    /// <summary>
+    /// Overrides the error message on failure.
+    /// </summary>
+    /// <example>Custom error message</example>
+    [DisplayFormat(DataFormatString = "Text")]
+    [DefaultValue("")]
+    public string ErrorMessageOnFailure { get; set; } = string.Empty;
 }

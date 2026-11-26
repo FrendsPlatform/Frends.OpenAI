@@ -8,10 +8,12 @@ public class Message
     /// <summary>
     /// The role of the author of this message.
     /// </summary>
+    /// <example>assistant</example>
     public string Role { get; set; }
 
     /// <summary>
     /// The contents of the message.
     /// </summary>
+    /// <example>Hello there, how may I assist you today?</example>
     public string Content { get; set; }
 }

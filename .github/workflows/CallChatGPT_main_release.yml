@@ -1,0 +1,25 @@
+name: CallChatGPT main release
+permissions:
+  contents: write
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Frends.OpenAI.CallChatGPT/**'
+      - '.github/workflows/CallChatGPT*.yml'
+  workflow_dispatch:
+
+jobs:
+  main_pipeline:
+    uses: FrendsPlatform/FrendsTasks/.github/workflows/official_task_pipeline.yml@main
+    with:
+      workflow_mode: main
+      os: all
+      workdir: Frends.OpenAI.CallChatGPT
+      env_var_name_1: OPENAI_API_KEY
+    secrets:
+      badge_service_api_key: ${{ secrets.BADGE_SERVICE_API_KEY }}
+      target_feed_api_key: ${{ secrets.TASKS_FEED_API_KEY }}
+      env_var_value_1: ${{ secrets.OPENAI_API_KEY }}

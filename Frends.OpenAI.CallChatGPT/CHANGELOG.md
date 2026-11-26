@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.0.0] - 2026-11-25
+### Changed
+- **[Breaking Change]** Task now targets .NET 8.
+- **[Breaking Change]** Replaced the `ThrowExceptionOnErrorResponse` option with `ThrowErrorOnFailure`.
+- **[Breaking Change]** The `Error` property of the result is now an object containing `Message` and `AdditionalInfo` instead of a string.
+- Added the `ErrorMessageOnFailure` option for overriding the error message on failure.
+- Added missing documentation examples to the result properties.
+- **[Breaking Change]** Move the `Model` and `ApiKey` properties to the new `Connection` class.
+
 ## [1.1.0] - 2025-02-17
 ### Changed
 - Update packages:

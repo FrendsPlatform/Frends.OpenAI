@@ -1,30 +1,10 @@
-﻿namespace Frends.OpenAI.CallChatGPT.Definitions;
-
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+namespace Frends.OpenAI.CallChatGPT.Definitions;
 
 /// <summary>
 /// Input for the task.
 /// </summary>
 public class Input
 {
-    /// <summary>
-    /// Chat GPT model to use.
-    /// Find a list of available models from https://platform.openai.com/docs/models.
-    /// </summary>
-    /// <example>gpt-3.5-turbo</example>
-    [DisplayFormat(DataFormatString = "Text")]
-    [DefaultValue("gpt-3.5-turbo")]
-    public string Model { get; set; }
-
-    /// <summary>
-    /// Chat GPT API key.
-    /// </summary>
-    /// <example>1234567qwerty</example>
-    [DisplayFormat(DataFormatString = "Text")]
-    [PasswordPropertyText]
-    public string ApiKey { get; set; }
-
     /// <summary>
     /// Array of messages to send to Chat GPT.
     /// </summary>
@@ -35,26 +15,4 @@ public class Input
     /// ]
     /// </example>
     public InputMessage[] Messages { get; set; }
-}
-
-/// <summary>
-/// Input message class.
-/// </summary>
-public class InputMessage
-{
-    /// <summary>
-    /// Message content.
-    /// </summary>
-    /// <example>Hello, world.</example>
-    [DisplayFormat(DataFormatString = "Text")]
-    [DefaultValue("Hello, world.")]
-    public string Content { get; set; }
-
-    /// <summary>
-    /// Role of the message. Example values: `user` or `system`.
-    /// </summary>
-    /// <example>User</example>
-    [DisplayFormat(DataFormatString = "Text")]
-    [DefaultValue("user")]
-    public string Role { get; set; }
 }
