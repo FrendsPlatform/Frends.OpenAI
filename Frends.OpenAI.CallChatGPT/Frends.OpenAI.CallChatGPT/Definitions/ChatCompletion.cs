@@ -1,6 +1,6 @@
-namespace Frends.OpenAI.CallChatGPT.Definitions;
-
 using System.Collections.Generic;
+
+namespace Frends.OpenAI.CallChatGPT.Definitions;
 
 /// <summary>
 /// Chat completion object.

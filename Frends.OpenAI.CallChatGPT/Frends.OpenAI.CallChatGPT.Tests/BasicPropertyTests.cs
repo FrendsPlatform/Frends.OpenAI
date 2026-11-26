@@ -1,10 +1,10 @@
-namespace Frends.OpenAI.CallChatGPT.Tests;
-
 using System;
 using System.Collections.Generic;
 using Frends.OpenAI.CallChatGPT.Definitions;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
+
+namespace Frends.OpenAI.CallChatGPT.Tests;
 
 /// <summary>
 /// Test class.
@@ -42,12 +42,28 @@ internal class BasicPropertyTests
         };
 
         // Act
-        input.Model = "gpt-3.5-turbo";
         input.Messages = messages;
 
         // Assert
-        ClassicAssert.AreEqual("gpt-3.5-turbo", input.Model);
         CollectionAssert.AreEqual(messages, input.Messages);
+        ClassicAssert.IsNull(typeof(Input).GetProperty("Model"));
+        ClassicAssert.IsNull(typeof(Input).GetProperty("ApiKey"));
+    }
+
+    [Test]
+    public void ConnectionProperties_SetAndGetCorrectly()
+    {
+        // Arrange
+        var connection = new Connection();
+        ClassicAssert.AreEqual("gpt-3.5-turbo", connection.Model);
+
+        // Act
+        connection.Model = "gpt-4.1-mini";
+        connection.ApiKey = "test-api-key";
+
+        // Assert
+        ClassicAssert.AreEqual("gpt-4.1-mini", connection.Model);
+        ClassicAssert.AreEqual("test-api-key", connection.ApiKey);
     }
 
     [Test]

@@ -1,4 +1,6 @@
-name: CallChatGPT_build_push
+name: CallChatGPT test publish
+permissions:
+  contents: read
 
 on:
   push:
@@ -6,15 +8,18 @@ on:
       - main
     paths:
       - 'Frends.OpenAI.CallChatGPT/**'
+      - '.github/workflows/CallChatGPT*.yml'
   workflow_dispatch:
 
 jobs:
-  build:
-    uses: FrendsPlatform/FrendsTasks/.github/workflows/linux_build_test.yml@main
+  work_push:
+    uses: FrendsPlatform/FrendsTasks/.github/workflows/official_task_pipeline.yml@main
     with:
+      workflow_mode: work
+      os: all
       workdir: Frends.OpenAI.CallChatGPT
       env_var_name_1: OPENAI_API_KEY
     secrets:
       badge_service_api_key: ${{ secrets.BADGE_SERVICE_API_KEY }}
-      test_feed_api_key: ${{ secrets.TASKS_TEST_FEED_API_KEY }}
+      target_feed_api_key: ${{ secrets.TASKS_TEST_FEED_API_KEY }}
       env_var_value_1: ${{ secrets.OPENAI_API_KEY }}

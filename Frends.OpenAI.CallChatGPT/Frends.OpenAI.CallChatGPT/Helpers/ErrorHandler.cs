@@ -1,9 +1,9 @@
-namespace Frends.OpenAI.CallChatGPT.Helpers;
-
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.ExceptionServices;
 using Frends.OpenAI.CallChatGPT.Definitions;
+
+namespace Frends.OpenAI.CallChatGPT.Helpers;
 
 [ExcludeFromCodeCoverage(Justification = "Untouched version already tested in template solution.")]
 internal static class ErrorHandler

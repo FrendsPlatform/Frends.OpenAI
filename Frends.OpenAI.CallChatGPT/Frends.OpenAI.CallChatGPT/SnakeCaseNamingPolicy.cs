@@ -1,7 +1,7 @@
-namespace Frends.OpenAI.CallChatGPT;
-
 using System.Linq;
 using System.Text.Json;
+
+namespace Frends.OpenAI.CallChatGPT;
 
 /// <summary>
 /// This class is used to convert property names to snake_case in JSON

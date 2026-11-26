@@ -1,7 +1,7 @@
-namespace Frends.OpenAI.CallChatGPT.Definitions;
-
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+
+namespace Frends.OpenAI.CallChatGPT.Definitions;
 
 /// <summary>
 /// Input message class.

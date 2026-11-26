@@ -1,6 +1,6 @@
-namespace Frends.OpenAI.CallChatGPT.Definitions;
-
 using System;
+
+namespace Frends.OpenAI.CallChatGPT.Definitions;
 
 /// <summary>
 /// Error that occurred during the task.

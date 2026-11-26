@@ -1,5 +1,3 @@
-namespace Frends.OpenAI.CallChatGPT;
-
 using System;
 using System.ComponentModel;
 using System.Net.Http;
@@ -11,6 +9,8 @@ using Frends.OpenAI.CallChatGPT.Helpers;
 using RestSharp;
 using RestSharp.Authenticators;
 using RestSharp.Serializers.Json;
+
+namespace Frends.OpenAI.CallChatGPT;
 
 /// <summary>
 /// Main class of the Task.
@@ -24,6 +24,7 @@ public static class OpenAI
     /// [Documentation](https://tasks.frends.com/tasks/frends-tasks/Frends.OpenAI.CallChatGPT).
     /// </summary>
     /// <param name="input">Task input.</param>
+    /// <param name="connection">API connection settings.</param>
     /// <param name="options">Task options.</param>
     /// <param name="cancellationToken">Cancellation token given by Frends.</param>
     /// <returns>object {
@@ -45,17 +46,18 @@ public static class OpenAI
     /// }</returns>
     public static async Task<Result> CallChatGPT(
         [PropertyTab] Input input,
+        [PropertyTab] Connection connection,
         [PropertyTab] Options options,
         CancellationToken cancellationToken)
     {
         try
         {
-            using var client = CreateClient(input);
+            using var client = CreateClient(connection);
             var request = new RestRequest("v1/chat/completions");
             request.AddJsonBody(new
             {
                 input.Messages,
-                input.Model,
+                connection.Model,
                 options.MaxTokens,
                 options.N,
                 options.Seed,
@@ -83,9 +85,9 @@ public static class OpenAI
         }
     }
 
-    private static RestClient CreateClient(Input input)
+    private static RestClient CreateClient(Connection connection)
     {
-        var auth = new JwtAuthenticator(input.ApiKey);
+        var auth = new JwtAuthenticator(connection.ApiKey);
         var restClientOptions = new RestClientOptions
         {
             BaseUrl = new Uri(ApiBaseUrl),
